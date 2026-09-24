@@ -17,3 +17,7 @@ nav{
     gap:5px;
 }
 
+.article-separator{
+    background:#212529;
+    height:20px;
+}

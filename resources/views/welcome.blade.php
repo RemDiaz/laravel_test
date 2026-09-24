@@ -4,6 +4,13 @@
 
 @section('content')
 
+    <style>
+        .article-separator{
+            background:#212529;
+            height:20px;
+        }
+    </style>
+
     <h1>Добро пожаловать!</h1>
 
     <p>
@@ -16,28 +23,6 @@
     </p>
 
     <div class="nes-table-responsive">
-    <!-- <table class="nes-table is-bordered is-centered">
-        <thead>
-        <tr>
-            <th>Date</th>
-            <th>Name</th>
-            <th>ShortDesc</th>
-            <th>Desc</th>
-            <th>Image</th>
-        </tr>
-        </thead>
-        <tbody>
-            @foreach($articles as $article)
-        <tr>
-            <td>{{$article['date']}}</td>
-            <td>{{$article['name']}}</td>
-            <td>{{$article['shortDesc']}}</td>
-            <td>{{$article['desc']}}</td>
-            <td>{{$article['preview_image']}}</td>
-        </tr>
-        @endforeach
-        </tbody>
-    </table> -->
     <table class="nes-table is-bordered is-centered">
         <tbody>
             @foreach($articles as $article)
@@ -51,7 +36,7 @@
             </tr>
             <tr>
                 <th>ShortDesc</th>
-                <td>{{ $article['shortDesc'] }}</td>
+                <td>{{ $article['shortDesc'] ?? ' ' }}</td>
             </tr>
             <tr>
                 <th>Desc</th>
@@ -61,7 +46,7 @@
                 <th>Image</th>
                 <td><a href="/galery/{{$article['full_image']}}"><img src="{{URL::asset('/images/'.$article['preview_image'])}}" alt="" height="100" width="auto"></a></td>
             </tr>
-            <tr class="nes-table is-bordered is-dark">
+            <tr class="article-separator">
                 <th></th>
                 <td></td>
             </tr>

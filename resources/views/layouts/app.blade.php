@@ -73,7 +73,7 @@
     <div  class="nes-container is-dark with-title">
         <p>Баранова София Алексеевна - it's me ⎚-⎚</p>
         <p>251-321 - (ง •̀_•́)ง 𝗥⟐𝗕𝗟◘𝗫</p>
-        <p>Git будет, честно ≽•⩊ •マ≼</p>
+        <p>https://github.com/RemDiaz/laravel_test ≽•⩊ •マ≼</p>
     </div>
 </footer>
 </body>

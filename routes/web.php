@@ -10,7 +10,7 @@ Route::get('/galery/{full_image}', [MainController:: class, 'show']);
 // о нас
 Route::get('/about', function () {
     return view('about');
-});
+})-> name('about');
 
 // контакты
 Route::get('/contacts', function () {
@@ -37,7 +37,7 @@ Route::get('/contacts', function () {
         'contacts' => $contacts
     ]);
 
-});
+})-> name('contacts');
 
 // для тестов
 Route::get('/nes-test',function(){
