@@ -3,14 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ArticleController;
 // главная
-Route::get('/', [MainController:: class, 'index']);
+Route::get('/', [MainController::class, 'index']);
 
-Route::get('/galery/{full_image}', [MainController:: class, 'show']);
+Route::get('/galery/{full_image}', [MainController::class, 'show']);
 
 Route::get('/auth/signup', [AuthController::class, 'create']);
 Route::post('/auth/login', [AuthController::class, 'signup']);
 
+Route::get('articles/show', [ArticleController::class, 'index']);
 // о нас
 Route::get('/about', function () {
     return view('about');

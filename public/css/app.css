@@ -19,3 +19,10 @@ nav{
     background:#212529;
     height:20px;
 }
+
+.center {
+    display: flex;
+    justify-content:end;  
+    align-items: center;  
+    margin-bottom: -6rem;                             
+}

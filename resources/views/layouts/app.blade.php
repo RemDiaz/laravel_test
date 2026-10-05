@@ -62,15 +62,16 @@
             <a href="/" class="nes-btn">Главная</a>
             <a href="/about" class="nes-btn">О нас</a>
             <a href="/contacts" class="nes-btn">Контакты</a>
+            <a href="/articles/show" class="nes-btn">Статьи</a>
             <a href="/auth/signup" class="nes-btn is-warning">Регистарция</a>
             <!-- <a href="/auth/login" class="nes-btn is-warning">Войти</a> -->
-            <!-- star -->
-            <div class="stars">
-                <i class="nes-icon is-medium star"></i>
-                <i class="nes-icon is-medium star is-half"></i>
-                <i class="nes-icon is-medium star is-transparent"></i>
-            </div>
         </nav>
+    </div>
+    <!-- star -->
+    <div class="stars margin center">
+        <i class="nes-icon is-medium star"></i>
+        <i class="nes-icon is-medium star is-half"></i>
+        <i class="nes-icon is-medium star is-transparent"></i>
     </div>
 </header>
 
