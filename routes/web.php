@@ -2,10 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\AuthController;
 // главная
 Route::get('/', [MainController:: class, 'index']);
 
 Route::get('/galery/{full_image}', [MainController:: class, 'show']);
+
+Route::get('/auth/signup', [AuthController::class, 'create']);
+Route::post('/auth/login', [AuthController::class, 'signup']);
 
 // о нас
 Route::get('/about', function () {
@@ -38,6 +42,10 @@ Route::get('/contacts', function () {
     ]);
 
 })-> name('contacts');
+
+
+
+
 
 // для тестов
 Route::get('/nes-test',function(){

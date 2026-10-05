@@ -8,6 +8,7 @@
 
     <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nes.css@2.3.0/css/nes.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     
 
@@ -42,6 +43,12 @@
         footer{
             margin-top:30px;
         }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
     </style>
 </head>
 
@@ -55,6 +62,8 @@
             <a href="/" class="nes-btn">Главная</a>
             <a href="/about" class="nes-btn">О нас</a>
             <a href="/contacts" class="nes-btn">Контакты</a>
+            <a href="/auth/signup" class="nes-btn is-warning">Регистарция</a>
+            <!-- <a href="/auth/login" class="nes-btn is-warning">Войти</a> -->
             <!-- star -->
             <div class="stars">
                 <i class="nes-icon is-medium star"></i>
