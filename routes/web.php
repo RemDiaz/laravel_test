@@ -4,6 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ArticleController;
+
+Route::resource('article', ArticleController::class);
+
+// Route::group(['prefix'=>'/article', 'middleware'=>'auth'], function(){
+//     Route::get('', [ArticleController::class, 'index']);
+//     Route::get('/create', [ArticleController::class, 'create']);
+//     Route::get('/store', [ArticleController::class, 'store']);
+// });
+
+
 // главная
 Route::get('/', [MainController::class, 'index']);
 
@@ -12,7 +22,7 @@ Route::get('/galery/{full_image}', [MainController::class, 'show']);
 Route::get('/auth/signup', [AuthController::class, 'create']);
 Route::post('/auth/login', [AuthController::class, 'signup']);
 
-Route::get('articles/show', [ArticleController::class, 'index']);
+// Route::get('articles/show', [ArticleController::class, 'index']);
 // о нас
 Route::get('/about', function () {
     return view('about');

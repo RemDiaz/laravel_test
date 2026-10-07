@@ -7,14 +7,13 @@
 <div class="nes-table-responsive">
     <table class="nes-table is-bordered is-centered">
         <tbody>
-            @foreach($articles as $article)
             <tr>
                 <th>Date</th>
                 <td>{{ $article->datePublic }}</td>
             </tr>
             <tr>
                 <th>Title</th>
-                <td><a href="/article/{{$article->id}}">{{ $article->title }}</a></td>
+                <td>{{ $article->title }}</td>
             </tr>
             <tr>
                 <th>ShortDesc</th>
@@ -24,14 +23,16 @@
                 <th>Desc</th>
                 <td>{{ $article->desc}}</td>
             </tr>
-            <tr class="article-separator">
-                <th></th>
-                <td></td>
-            </tr>
-            @endforeach
         </tbody>
     </table>
-    {{ $articles->links('pagination::default') }}
+    <div class="article-actions margin">
+        <a href="/article/{{$article->id}}/edit" class="nes-btn is-warning">Редактировать</a>
+        <form action="/article/{{$article->id}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="nes-btn is-error">Удалить</button>
+        </form>
+    </div>
 </div>
 
 @endsection

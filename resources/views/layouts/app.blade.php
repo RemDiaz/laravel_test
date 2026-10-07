@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nes.css@2.3.0/css/nes.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pagination.css') }}">
     
 
     <style>
@@ -44,7 +45,7 @@
             margin-top:30px;
         }
 
-        form {
+        .signup-form {
             max-width: 500px;
             margin: 0 auto;
         }
@@ -62,17 +63,25 @@
             <a href="/" class="nes-btn">Главная</a>
             <a href="/about" class="nes-btn">О нас</a>
             <a href="/contacts" class="nes-btn">Контакты</a>
-            <a href="/articles/show" class="nes-btn">Статьи</a>
+            <a href="/article" class="nes-btn">Статьи</a>
+            <a href="/article/create" class="nes-btn">Создать статью</a>
             <a href="/auth/signup" class="nes-btn is-warning">Регистарция</a>
             <!-- <a href="/auth/login" class="nes-btn is-warning">Войти</a> -->
+
+            <!-- star -->
+            <div class="stars">
+                <i class="nes-icon is-medium star"></i>
+                <i class="nes-icon is-medium star is-half"></i>
+                <i class="nes-icon is-medium star is-transparent"></i>
+            </div>
         </nav>
     </div>
     <!-- star -->
-    <div class="stars margin center">
+    <!-- <div class="stars margin center">
         <i class="nes-icon is-medium star"></i>
         <i class="nes-icon is-medium star is-half"></i>
         <i class="nes-icon is-medium star is-transparent"></i>
-    </div>
+    </div> -->
 </header>
 
 <main>

@@ -5,14 +5,14 @@
 @section('content')
 
 
-<form action="/auth/login" method="post" id="DEBUG_FORM_123">
+<form action="/auth/login" method="post" class="signup-form">
     @csrf
     <div class="nes-field margin">
         <label for="name_field">Your name</label>
         <input name="name" type="text" id="" placeholder="Enter name" class="nes-input">
     </div>
     <div class="nes-field margin">
-        <label for="name_field">Email</label>
+        <label for="email_field">Email</label>
         <input name="email" type="email" id="email_field" placeholder="Enter email" class="nes-input">
     </div>
     <div class="nes-field margin">
