@@ -5,10 +5,10 @@
 @section('content')
 
 
-<form action="/auth/login" method="post" class="signup-form">
+<form action="/auth/signup" method="post" class="signup-form">
     @csrf
     <div class="nes-field margin">
-        <label for="name_field">Your name</label>
+        <label for="name_field">Имя</label>
         <input name="name" type="text" id="" placeholder="Enter name" class="nes-input">
     </div>
     <div class="nes-field margin">
@@ -16,7 +16,7 @@
         <input name="email" type="email" id="email_field" placeholder="Enter email" class="nes-input">
     </div>
     <div class="nes-field margin">
-        <label for="password_field">Password</label>
+        <label for="password_field">Пароль</label>
         <input name="password" type="password" id="password_field" placeholder="Password" class="nes-input">
     </div>
     <button type="submit" class="nes-btn is-success margin">Submit</button>

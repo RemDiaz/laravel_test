@@ -5,7 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ArticleController;
 
-Route::resource('article', ArticleController::class);
+Route::resource('article', ArticleController::class)->middleware('auth:sanctum');
 
 // Route::group(['prefix'=>'/article', 'middleware'=>'auth'], function(){
 //     Route::get('', [ArticleController::class, 'index']);
@@ -19,8 +19,12 @@ Route::get('/', [MainController::class, 'index']);
 
 Route::get('/galery/{full_image}', [MainController::class, 'show']);
 
-Route::get('/auth/signup', [AuthController::class, 'create']);
-Route::post('/auth/login', [AuthController::class, 'signup']);
+Route::get('/auth/signup', [AuthController::class, 'create'])->name('signup');
+Route::post('/auth/signup', [AuthController::class, 'signup']);
+
+Route::get('/auth/login', [AuthController::class, 'login'])->name('login');
+Route::post('/auth/signin', [AuthController::class, 'customLogin']);
+Route::get('/auth/logout', [AuthController::class, 'logout']);
 
 // Route::get('articles/show', [ArticleController::class, 'index']);
 // о нас

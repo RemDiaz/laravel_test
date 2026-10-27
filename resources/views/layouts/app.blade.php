@@ -65,8 +65,13 @@
             <a href="/contacts" class="nes-btn">Контакты</a>
             <a href="/article" class="nes-btn">Статьи</a>
             <a href="/article/create" class="nes-btn">Создать статью</a>
-            <a href="/auth/signup" class="nes-btn is-warning">Регистарция</a>
-            <!-- <a href="/auth/login" class="nes-btn is-warning">Войти</a> -->
+            @guest
+                <a href="/auth/signup" class="nes-btn is-warning">Регистарция</a>
+                <a href="/auth/login" class="nes-btn is-warning">Войти</a>
+            @endguest
+            @auth
+                <a href="/auth/logout" class="nes-btn is-warning">Выйти</a>
+            @endauth
 
             <!-- star -->
             <div class="stars">
