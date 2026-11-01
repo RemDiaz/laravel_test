@@ -63,8 +63,10 @@
             <a href="/" class="nes-btn">Главная</a>
             <a href="/about" class="nes-btn">О нас</a>
             <a href="/contacts" class="nes-btn">Контакты</a>
+            @can('article')
             <a href="/article" class="nes-btn">Статьи</a>
             <a href="/article/create" class="nes-btn">Создать статью</a>
+            @endcan
             @guest
                 <a href="/auth/signup" class="nes-btn is-warning">Регистарция</a>
                 <a href="/auth/login" class="nes-btn is-warning">Войти</a>
