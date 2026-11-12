@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 
 Route::resource('article', ArticleController::class)->middleware('auth:sanctum');
 
@@ -25,6 +26,21 @@ Route::post('/auth/signup', [AuthController::class, 'signup']);
 Route::get('/auth/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth/signin', [AuthController::class, 'customLogin']);
 Route::get('/auth/logout', [AuthController::class, 'logout']);
+
+
+
+
+Route::post('/article/{article}/comment', [CommentController::class, 'store'])
+    ->middleware('auth')
+    ->name('comment.store');
+
+Route::put('/comment/{comment}', [CommentController::class, 'update'])
+    ->middleware('auth')
+    ->name('comment.update');
+
+Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('comment.destroy');
 
 // Route::get('articles/show', [ArticleController::class, 'index']);
 // о нас
