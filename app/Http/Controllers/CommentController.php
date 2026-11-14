@@ -37,16 +37,17 @@ class CommentController extends Controller
     public function store(Request $request, Article $article)
     {
         $validated = $request->validate([
-            'text' => 'required|string|max:5000'
+            'text' => 'required|string|max:200'
         ]);
 
         $article->comments()->create([
             'user_id' => auth()->id(),
-            'text' => $validated['text']
+            'text' => $validated['text'],
+            'is_approved' => false
         ]);
 
         return redirect()->back()
-            ->with('success', 'Комментарий добавлен!');
+            ->with('success', 'Комментарий добавлен! Отправлен на модерацию');
     }
 
     /**
@@ -117,5 +118,49 @@ class CommentController extends Controller
 
         return redirect()->back()
             ->with('success', 'Комментарий удалён!');
+    }
+
+    private function checkModerator()
+    {
+        $user = auth()->user();
+
+        abort_unless(
+            $user && $user->role && $user->role->role == 'moderator',
+            403
+        );
+    }
+
+    public function moderation()
+    {
+        $this->checkModerator();
+
+        $comments = Comment::where('is_approved', false)
+            ->with(['user', 'article'])
+            ->latest()
+            ->get();
+
+        return view('comments.moderation', compact('comments'));
+    }
+
+    public function approve(Comment $comment)
+    {
+        $this->checkModerator();
+
+        $comment->is_approved = true;
+        $comment->save();
+
+        return redirect()
+            ->route('comment.moderation')
+            ->with('success', 'Комментарий одобрен!');
+    }
+
+    public function reject(Comment $comment)
+    {
+        $this->checkModerator();
+
+        $comment->delete();
+
+        return redirect()->back()
+            ->with('success', 'Комментарий отклонён!');
     }
 }

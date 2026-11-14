@@ -42,6 +42,18 @@ Route::delete('/comment/{comment}', [CommentController::class, 'destroy'])
     ->middleware('auth')
     ->name('comment.destroy');
 
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/comments/moderation', [CommentController::class, 'moderation'])
+        ->name('comment.moderation');
+
+    Route::patch('/comments/{comment}/approve', [CommentController::class, 'approve'])
+        ->name('comment.approve');
+
+    Route::delete('/comments/{comment}/reject', [CommentController::class, 'reject'])
+        ->name('comment.reject');
+});
 // Route::get('articles/show', [ArticleController::class, 'index']);
 // о нас
 Route::get('/about', function () {

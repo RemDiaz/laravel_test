@@ -66,6 +66,7 @@
             <a href="/article" class="nes-btn">Статьи</a>
             @can('article')
             <a href="/article/create" class="nes-btn">Создать статью</a>
+            <a href="{{ route('comment.moderation') }}" class="nes-btn">Модерация комментариев</a>
             @endcan
             @guest
                 <a href="/auth/signup" class="nes-btn is-warning">Регистарция</a>

@@ -39,7 +39,7 @@
 
 <hr>
 
-<h2 class="margin">Комментарии</h2>
+<h2 class="margin4">Комментарии</h2>
 
 @if(session('success'))
     <div class="nes-balloon from-left">
@@ -49,7 +49,7 @@
 
 @forelse($article->comments as $comment)
 
-    <section class="nes-container with-title">
+    <section class="nes-container with-title margin2">
         <p class="title">
             {{ $comment->user ? $comment->user->name : 'Неизвестный пользователь' }}
 
@@ -145,8 +145,7 @@
 
 <hr>
 
-
-<h2>Оставить комментарий</h2>
+<h2 class="margin4">Оставить комментарий</h2>
 
 @auth
 
