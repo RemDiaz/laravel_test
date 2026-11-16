@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ArticleMail;
 use App\Jobs\VeryLongJob;
 use App\Events\NewArticleEvent;
+use App\Models\User;
+use App\Notifications\NewArticleNotification;
+use Illuminate\Support\Facades\Notification;
 
 class ArticleController extends Controller
 {
@@ -53,8 +56,12 @@ class ArticleController extends Controller
         $article->shortDesc = $request->shortDesc;
         $article->desc = $request->desc;
         $result = $article->save();
-        event(new NewArticleEvent($article));
-        if ($result) VeryLongJob::dispatch($article);
+        if ($result) {
+            event(new NewArticleEvent($article));
+            VeryLongJob::dispatch($article);
+            $readers = User::where('id', '!=', auth()->id())->get();
+            Notification::send($readers, new NewArticleNotification($article));
+        }
         return redirect()->route('article.index');
 
     }

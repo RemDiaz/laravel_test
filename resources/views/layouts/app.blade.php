@@ -74,6 +74,24 @@
                 <a href="/auth/login" class="nes-btn is-warning">Войти</a>
             @endguest
             @auth
+                <div class="dropdown">
+                    <button class="nes-btn is-primary">
+                        Уведомления
+                        ({{ auth()->user()->unreadNotifications()->count() }})
+                    </button>
+
+                    <div class="dropdown-content">
+                        @forelse(auth()->user()->unreadNotifications as $notification)
+
+                            <a href="{{ route('notifications.read', $notification->id) }}">
+                                {{ $notification->data['article_title'] }}
+                            </a>
+
+                        @empty
+                            <p>Нет новых уведомлений</p>
+                        @endforelse
+                    </div>
+                </div>
                 <a href="/auth/logout" class="nes-btn is-warning">Выйти</a>
             @endauth
 

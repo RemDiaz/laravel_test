@@ -6,7 +6,14 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
 
-Route::resource('article', ArticleController::class)->middleware('auth:sanctum');
+Route::resource('article', ArticleController::class);
+
+Route::resource('article', ArticleController::class)
+    ->only(['index', 'show']);
+
+Route::resource('article', ArticleController::class)
+    ->except(['index', 'show'])
+    ->middleware('auth');
 
 // Route::group(['prefix'=>'/article', 'middleware'=>'auth'], function(){
 //     Route::get('', [ArticleController::class, 'index']);
@@ -54,6 +61,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/comments/{comment}/reject', [CommentController::class, 'reject'])
         ->name('comment.reject');
 });
+
+
+Route::get('/notifications/{id}/read', function ($id) {
+    $notification = auth()->user()
+        ->notifications()
+        ->findOrFail($id);
+
+    $notification->markAsRead();
+
+    return redirect()->route('article.show', [
+        'article' => $notification->data['article_id']
+    ]);
+})->middleware('auth')->name('notifications.read');
+
+
 // Route::get('articles/show', [ArticleController::class, 'index']);
 // о нас
 Route::get('/about', function () {

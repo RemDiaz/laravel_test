@@ -6,6 +6,8 @@ use App\Models\Article;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
+use App\Http\Controllers\ArticleController;
+use App\Policies\ArticleControllerPolicy;
 
 class ArticleControllerPolicy
 {

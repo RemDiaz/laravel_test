@@ -6,6 +6,8 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
+use App\Http\Controllers\ArticleController;
+use App\Policies\ArticleControllerPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
