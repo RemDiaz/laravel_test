@@ -24,5 +24,24 @@ nav{
     display: flex;
     justify-content:end;  
     align-items: center;  
-    margin-bottom: -6rem;                     
+    margin-bottom: -6rem;                             
+}
+
+.article-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.article-actions form {
+    display: flex;
+    margin: 0;
+}
+
+.margin4 {
+    margin-top: 4rem;
+}
+
+.margin2 {
+    margin-top: 2rem;
 }

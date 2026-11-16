@@ -10,13 +10,18 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@vue/compiler-sfc": "^3.5.45",
         "axios": "^0.21",
+        "laravel-echo": "^2.6.3",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
+        "pusher-js": "^8.6.0",
+        "vue-loader": "^16.8.3",
         "webpack": "~5.99.9"
     },
     "dependencies": {
-        "nes.css": "^2.3.0"
+        "nes.css": "^2.3.0",
+        "vue": "^3.5.45"
     }
 }

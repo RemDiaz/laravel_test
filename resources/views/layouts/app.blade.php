@@ -56,6 +56,7 @@
 <body>
 
 <header>
+    <div id="app"></div>
     <div class="nes-container with-title">
         <p class="title">Мой сайт</p>
 
@@ -103,5 +104,6 @@
         <p>https://github.com/RemDiaz/laravel_test ≽•⩊ •マ≼</p>
     </div>
 </footer>
+<script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
